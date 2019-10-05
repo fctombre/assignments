@@ -1,0 +1,15 @@
+**What is scope? Your explanation should include the idea of global vs. block scope.
+
+Scope is the limits of the reach of the variable.  Is the variable available to all of the code, or just the single function that it is defined within?  Variables with global scope can be accessed from anywhere within the code, and can be changed as well.  Variables with block scope are only accessible within the function the live in and cannot be changed by any code outside of that function. 
+
+**Why are global variables avoided?
+
+Global variables should be avoided because they can be changed from anywhere within the code.  This could lead to buggy code later on down the line. 
+
+**Explain JavaScript's strict mode
+
+Strict mode is set at the beginning of a file or a function.  It will trigger an error if a variable is set without using let or const.  
+
+**What are side effects, and what is a pure function?
+
+A side effect is when a function reaches outside its local scope and into a parent scope to alter a value there.  This could be a function that updates a value in a database and would be a intended side effect.  However, without being intended, it could cause buggy code.  A pure function has no side effects and is determinate. 
