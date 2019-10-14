@@ -1,0 +1,26 @@
+function getTokens(rawString) {
+  // NB: `.filter(Boolean)` removes any falsy items from an array
+  return rawString.toLowerCase().split(/[ ,!.";:-]+/).filter(Boolean).sort();
+}
+
+function mostFrequentWord(text) { //creates the function
+  let words = getTokens(text); //creates the variable to allow counting of the words
+  let wordFrequencies = {}; //creates the object to house the words and word count
+  for (let i = 0; i <= words.length; i++) { //starts the counting loop, to run until all words are counted
+    if (words[i] in wordFrequencies) { //if there are more than 1 instance of the word, increase the count
+      wordFrequencies[words[i]]++;
+    } else {
+      wordFrequencies[words[i]] = 1;//or else return 1 as the word count
+    }
+  }
+  let currentMaxKey = Object.keys(wordFrequencies)[0]; //let currentMaxKey be the object key count of the words
+  let currentMaxCount = wordFrequencies[currentMaxKey]; //let currentMaxCount return the word and count
+
+  for (let word in wordFrequencies) {//this is the for loop that looks at the word counts, and updates the word with the most count
+    if (wordFrequencies[word] > currentMaxCount) {//compares the word and count against the currentMaxCount (word and count)
+      currentMaxKey = word; //makes currentMaxKey the same as word and holds the place for the word with the current max count
+      currentMaxCount = wordFrequencies[word]; //makes currentMaxCount the same as the wordFrequencies count from ealier in the code
+    }
+  }
+  return currentMaxKey; //returns the word with the highest count
+}
